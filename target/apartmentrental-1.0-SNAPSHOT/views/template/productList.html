@@ -1,0 +1,57 @@
+
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="addSuccess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <strong>Success!</strong> Success adding a new product
+</div>
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="editSuccess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <strong>Success!</strong> Success edit the product
+</div>
+<div class="alert alert-success alert-dismissible" role="alert" ng-show="deleteSucess">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+    <strong>Success!</strong> Success delete the product
+</div>
+<div class="container">
+    <!-- Default panel contents -->
+    <div class="panel-heading">Products</div>
+    <div class="panel-body">
+        <p>...</p>
+    </div>
+
+    <!-- Table -->
+    <table class="table table-hover">
+        <tr>
+            <th>#</th>
+            <th>name</th>
+            <th>description</th>
+            <th>price</th>
+            <th>edit</th>
+            <th>delete</th>
+
+        </tr>
+        <tr ng-repeat="product in products">
+            <td>{{$index+1}}</td>
+            <td><a ng-href="#/editProduct/{{product.id}}">{{product.name}}</a></td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td><a ng-href="#/editProduct/{{product.id}}"> <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a></td>
+            <td><a ng-href="#/listProduct"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true" ng-click="deleteProduct(product.id)"></span></a></td>
+        </tr>
+    </table>
+    <div style="margin-top: 50px;">
+        <div class="col-sm-6 col-md-2" ng-repeat="product in products">
+            <div class="thumbnail">
+                <img src="../../images/small.png" alt="...">
+                <div class="caption">
+                    <h5>{{product.name}}</h5>
+                    <p style="font-size: 13px;">{{product.description}}</p>
+                    <p style="font-size: 13px;">{{product.price}} baht</p>
+                    <p><a ng-href="#/editProduct/{{product.id}}" class="btn-xs btn-success" role="button">View</a> <a href="#" class="btn-xs btn-warning" role="button">Add to cart</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
